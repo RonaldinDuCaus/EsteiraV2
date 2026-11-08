@@ -71,3 +71,7 @@ Próximo teste pendente: desconectar USB, desencaixar a ESP32-CAM da MB e recone
 O pacote CDM 2.12.36.20 foi obtido pelo navegador no [host oficial FTDI](https://ftdichip.com/wp-content/uploads/2025/03/CDM2123620_Setup.zip), extraído localmente e teve assinatura Authenticode do executável verificada como `Valid`, editor Future Technology Devices International Ltd. SHA256 do ZIP: E412945BB98F96B3296A89A549E6B617129E5481E0BE2FE5410247857C507796. SHA256 do EXE: 6B4985913C5F8B0B9656E8BAA6F1193B2B7EF3385F67DDC09FBA83A670B5444D.
 
 É a mesma versão instalada, para tentativa de reinstalação. Instalador não foi executado pelo assistente: sessão sem elevação administrativa do Windows. Foi entregue ao usuário para execução como administrador; instalação e novo ensaio ainda aguardam confirmação. Os binários de driver ficam fora do repositório do projeto; nenhum firmware, token ou configuração de placas foi alterado.
+
+### Reinstalação informada pelo usuário — 08/11/2026
+
+O usuário informou ter concluído a instalação do pacote FTDI como administrador. A porta voltou a aparecer como COM4, versão 2.12.36.20 e ProblemCode 0. A consulta seguinte encontrou acesso negado antes de abrir a porta; foi identificado um processo Python da consulta comparativa anterior ainda preso na interface. O assistente solicitou o encerramento desse processo, mas o Windows não concluiu a finalização no prazo de 2 s. Foi solicitada nova desconexão USB de 10 s e reconexão, mantendo a IDE fechada, antes do reteste. Ainda não há confirmação de que a reinstalação resolveu a gravação.
