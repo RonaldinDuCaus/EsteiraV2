@@ -386,3 +386,9 @@ Próximo teste pendente: desconectar USB, desencaixar a ESP32-CAM da MB e recone
 - A porta variou entre COM4 e COM5 depois de reconexões do usuário. Usar sempre a porta atualmente enumerada. O usuário confirmou que o cabo funcionou ao gravar o ESP32 comum; esse dispositivo usa CH9102, enquanto a base da câmera aparece como FTDI.
 - Driver FTDI instalado: 2.12.36.20, sem código de problema permanente no PnP. Nenhum driver foi alterado. A sessão do assistente não tem elevação administrativa do Windows; uma reinstalação do driver deverá ser executada pelo usuário como administrador.
 - Gravação da ESP32-CAM continua pendente. Não há diagnóstico conclusivo de defeito na câmera ou base, nem validação de captura/reconhecimento. Próximos passos: reinstalação do pacote FTDI oficial e novo ensaio; persistindo, comparar outra base/conversor e verificar alimentação/encaixe.
+
+### Instalador FTDI preparado — 08/11/2026
+
+O pacote CDM 2.12.36.20 foi obtido pelo navegador no [host oficial FTDI](https://ftdichip.com/wp-content/uploads/2025/03/CDM2123620_Setup.zip), extraído localmente e teve assinatura Authenticode do executável verificada como `Valid`, editor Future Technology Devices International Ltd. SHA256 do ZIP: E412945BB98F96B3296A89A549E6B617129E5481E0BE2FE5410247857C507796. SHA256 do EXE: 6B4985913C5F8B0B9656E8BAA6F1193B2B7EF3385F67DDC09FBA83A670B5444D.
+
+É a mesma versão instalada, para tentativa de reinstalação. Instalador não foi executado pelo assistente: sessão sem elevação administrativa do Windows. Foi entregue ao usuário para execução como administrador; instalação e novo ensaio ainda aguardam confirmação. Os binários de driver ficam fora do repositório do projeto; nenhum firmware, token ou configuração de placas foi alterado.
