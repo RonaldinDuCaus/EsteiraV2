@@ -38,3 +38,11 @@ O domínio resolve por DNS, mas a verificação HTTPS retornou `RemoteCertificat
 ## Ensaio físico proposto
 
 Com alimentação adequada e motor inicialmente desabilitado, conferir calibração/sensor, comunicação autenticada e reserva de captura. Depois testar uma peça por vez: reconhecida, desconhecida, ambígua e peça que permanece no sensor. Simular rede desligada, câmera indisponível, worker parado, análise lenta, resultado de boot anterior e reinício durante o ciclo. Nenhuma dessas falhas pode aprovar movimento. Registrar o resultado real antes de declarar o conjunto validado.
+
+## Tentativa de gravação da ESP32-CAM — 08/11/2026
+
+Log enviado pelo usuário: compilação concluída, 1.229.353 bytes de flash (39%) e 60.960 bytes globais (18%). O esptool 5.3.1 conectou à COM4, mas durante o envio do stub ocorreu erro pySerial `Cannot configure port`, `PermissionError(13)`, acesso negado pelo Windows. A gravação não foi concluída; o log não confirma execução do firmware, câmera pronta ou comunicação com a VPS.
+
+O Windows identifica a COM4 como adaptador USB serial FTDI. Foi orientado fechar programas que usam a porta, reconectar o USB, confirmar a porta e tentar Upload Speed 115200, com cabo de dados e conexão USB direta. Persistindo, conferir alimentação e driver FTDI oficial. Causa ainda não determinada; nenhuma configuração de driver foi alterada pelo assistente.
+
+O aviso de cristal estimado em 0,46 MHz, normalizado para 26 MHz, não confirma a frequência física do cristal nem defeito na placa. Não alterar cristal ou frequência de flash com base nesse aviso. Referências: [Espressif — erros seriais](https://docs.espressif.com/projects/esptool/en/latest/esp32/troubleshooting.html#a-serial-exception-error-occurred) e [menu Upload Speed](https://docs.espressif.com/projects/arduino-esp32/en/latest/guides/tools_menu.html#upload-speed).
