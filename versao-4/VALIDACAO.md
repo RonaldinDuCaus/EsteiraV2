@@ -75,3 +75,17 @@ O pacote CDM 2.12.36.20 foi obtido pelo navegador no [host oficial FTDI](https:/
 ### Reinstalação informada pelo usuário — 08/11/2026
 
 O usuário informou ter concluído a instalação do pacote FTDI como administrador. A porta voltou a aparecer como COM4, versão 2.12.36.20 e ProblemCode 0. A consulta seguinte encontrou acesso negado antes de abrir a porta; foi identificado um processo Python da consulta comparativa anterior ainda preso na interface. O assistente solicitou o encerramento desse processo, mas o Windows não concluiu a finalização no prazo de 2 s. Foi solicitada nova desconexão USB de 10 s e reconexão, mantendo a IDE fechada, antes do reteste. Ainda não há confirmação de que a reinstalação resolveu a gravação.
+
+## Portas USB e placa reserva — 08/11/2026
+
+| Porta observada | Interface | Resultado registrado |
+|---|---|---|
+| COM3 | CH9102, driver WCH 2.1.2025.7 | Gravação no ESP32 da esteira confirmada pelo usuário |
+| COM4 / COM5 | FTDI, driver 2.12.36.20 | Base MB da câmera: consultas/gravação instáveis, falha pySerial e processos pendentes |
+| COM6 | CH9102, mesmo driver WCH 2.1.2025.7 | ESP32 reserva: porta abriu e recebeu resposta; esptool informou boot normal 0x13, exigindo entrada manual no modo de gravação |
+
+Os números COM são identificadores atribuídos pelo Windows, não classificações de qualidade ou compatibilidade. Duas placas com o mesmo CH9102 podem receber números diferentes por serem interfaces distintas. Renomear uma porta não troca o conversor USB, o driver ou o modo de inicialização do ESP32.
+
+Após a reinstalação FTDI e reconexão, o conversor chegou a apresentar Código 10 (falha de inicialização do dispositivo), sem criar a COM. O usuário reiniciou o Windows: código voltou a 0 e a COM4 reapareceu. Uma consulta ROM respondeu com cristal 40 MHz; o ensaio seguinte voltou a mostrar identificação/cristal incoerentes e erro durante o envio do stub. A gravação da câmera ainda não foi concluída.
+
+O usuário disponibilizou outro ESP32, preservando o que já está no shield da esteira. A placa reserva está na COM6. Antes de orientar jumpers ou gravar, falta confirmar seu modelo em modo ROM, a alimentação 5 V disponível e a ligação temporária como ponte USB-UART. O teste atual pede segurar BOOT, pressionar/soltar EN/RST e soltar BOOT; a consulta não altera o firmware da placa reserva.
