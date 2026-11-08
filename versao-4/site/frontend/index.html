@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mini Fábrica Kronux: um projeto que conecta esteira, visão computacional e um painel de operação para identificar componentes eletrônicos.">
+  <meta name="theme-color" content="#091b27">
+  <link rel="canonical" href="https://minifabrica.kronux.com.br/">
+  <title>Mini Fábrica — Kronux</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="home-header">
+    <a class="brand home-brand" href="/" aria-label="Mini Fábrica Kronux — início"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Mini Fábrica<small>POR KRONUX</small></span></a>
+    <nav class="home-nav" aria-label="Navegação principal"><a href="#modulos">Módulos</a><a href="#fluxo">Como funciona</a><a class="header-panel-link" href="/painel">Acessar painel <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="conteudo">
+    <section class="home-hero home-container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>MINI FÁBRICA INTELIGENTE</span>
+        <h1 id="hero-title">Uma linha conectada.<br>Uma decisão<br><em>por peça.</em></h1>
+        <p>Da chegada do componente à identificação visual. Um projeto que reúne automação, câmera e inteligência artificial em um único fluxo de operação.</p>
+        <div class="hero-actions"><a class="primary-button" href="/painel">Abrir painel de operação <span aria-hidden="true">↗</span></a><a class="quiet-link" href="#fluxo">Conheça o processo <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-bottom"><span>CONTROLE LOCAL</span><i aria-hidden="true"></i><span>VISÃO COMPUTACIONAL</span><i aria-hidden="true"></i><span>OPERAÇÃO WEB</span></div>
+      </div>
+      <div class="hero-machine">
+        <div class="machine-label"><span>ARQUITETURA DO PROJETO</span><span aria-hidden="true">MF / 01</span></div>
+        <svg class="machine-diagram" viewBox="0 0 640 500" role="img" aria-labelledby="machine-title machine-desc">
+          <title id="machine-title">Esteira, câmera e servidor conectados</title>
+          <desc id="machine-desc">Uma peça passa pela esteira, é fotografada pela câmera e segue para análise no servidor. O resultado volta ao controle da esteira.</desc>
+          <defs><pattern id="machine-grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#24404c" stroke-width=".7"/></pattern><linearGradient id="belt-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#36535d"/><stop offset="1" stop-color="#152e3b"/></linearGradient></defs>
+          <rect width="640" height="500" rx="14" fill="url(#machine-grid)"/>
+          <path d="M68 343 375 343 538 244" fill="none" stroke="#2f515b" stroke-width="1" stroke-dasharray="4 7"/>
+          <g transform="translate(54 265)"><path d="m0 42 277-87 223 79-278 93z" fill="url(#belt-fill)" stroke="#6e8991" stroke-width="1.5"/><path d="m0 42 222 85v30L0 73z" fill="#122c37" stroke="#48646f"/><path d="m222 127 278-93v31l-278 92z" fill="#0c222d" stroke="#48646f"/><path d="m26 36 224 84M58 26l224 84M91 15l224 84M124 5l224 84M157-5l224 84M190-16l224 84M223-26l224 84M256-37l224 84" stroke="#6d8d95" stroke-width="7" opacity=".48"/><path d="m24 91 20 8v50l-20-8zm161 63 20 8v50l-20-8zm269-62 20-7v51l-20 7z" fill="#243e49" stroke="#58717c"/><circle cx="20" cy="63" r="7" fill="#0a1b25" stroke="#73909a"/><circle cx="240" cy="138" r="7" fill="#0a1b25" stroke="#73909a"/></g>
+          <g transform="translate(248 264)"><path d="m0 0 61-19 70 25-61 20z" fill="#1db99f" stroke="#8ae0c9"/><path d="M0 0v9l70 27v-10zm70 26v10l61-20V6z" fill="#0c7b6c" stroke="#5aaf9d"/><path d="m28 0 24-7 30 11-25 7z" fill="#0b2630" stroke="#a4c5bf"/><path d="m14 5 9-3m0 7 8-2m54 6 9-3m-1-2 9-3" stroke="#d3b877" stroke-width="3"/></g>
+          <g transform="translate(144 91)"><path d="M0 17v194M0 17h156v136" fill="none" stroke="#69828e" stroke-width="11"/><path d="M0 17h156" stroke="#a7b7bd" stroke-width="3"/><rect x="124" y="138" width="64" height="40" rx="8" fill="#1c3a46" stroke="#90abae"/><circle cx="156" cy="158" r="12" fill="#081d27" stroke="#2ccbb1" stroke-width="3"/><circle cx="156" cy="158" r="4" fill="#7ce5cc"/><path d="m145 182-33 90m55-90 37 104" stroke="#26c3a9" stroke-width="1.5" stroke-dasharray="5 5"/><path d="m156 182 2 87" stroke="#26c3a9" stroke-width="1" opacity=".5"/></g>
+          <g transform="translate(395 65)"><rect width="190" height="100" rx="12" fill="#102b37" stroke="#41616d"/><rect x="16" y="18" width="40" height="40" rx="7" fill="#113e43" stroke="#2ccbb1"/><path d="M27 38h18m-9-9v18m-19-25v-6m13 6v-6m13 6v-6m-26 48v-6m13 6v-6m13 6v-6" stroke="#65dac0" stroke-width="2"/><text x="70" y="35" fill="#e7f0ef" font-size="15" font-family="system-ui" font-weight="700">YOLOv8</text><text x="70" y="55" fill="#91acb4" font-size="11" font-family="system-ui">ANÁLISE NO SERVIDOR</text><path d="M17 78h155" stroke="#35535f"/><path d="m25 71 7 7-7 7m14-14 7 7-7 7" fill="none" stroke="#e4b06a" stroke-width="1.5"/></g>
+          <path d="M337 150h38q20 0 20-20v-13" fill="none" stroke="#26c3a9" stroke-width="2" stroke-dasharray="5 5"/><path d="M584 119h20v290H350" fill="none" stroke="#dba765" stroke-width="1.5" stroke-dasharray="5 6"/><path d="m359 404-10 5 10 5" fill="none" stroke="#dba765" stroke-width="1.5"/>
+          <rect x="57" y="203" width="115" height="33" rx="6" fill="#0b2530" stroke="#34525e"/><text x="72" y="224" fill="#aac1c7" font-size="11" font-family="system-ui">01 / DETECÇÃO</text><rect x="245" y="42" width="122" height="33" rx="6" fill="#0b2530" stroke="#34525e"/><text x="259" y="63" fill="#aac1c7" font-size="11" font-family="system-ui">02 / CAPTURA</text><text x="365" y="433" fill="#cfa66c" font-size="10" font-family="system-ui" letter-spacing="1">RESULTADO VINCULADO À PEÇA</text>
+        </svg>
+        <div class="machine-caption"><span class="diagram-key"><i aria-hidden="true"></i>Fluxo de informação</span><span>Ilustração da arquitetura</span></div>
+      </div>
+    </section>
+    <section id="modulos" class="home-section home-container" aria-labelledby="modules-title">
+      <div class="section-heading"><div><span class="eyebrow">MÓDULOS DO SISTEMA</span><h2 id="modules-title">Cada parte com uma função.<br>Todas no mesmo processo.</h2></div><p>Controle físico, captura visual e análise se conectam pelo servidor. O painel reúne a operação e o histórico.</p></div>
+      <div class="module-grid">
+        <article class="module-card"><div class="module-top"><span class="module-number">01</span><span class="module-chip">ESP32</span></div><svg viewBox="0 0 64 48" aria-hidden="true"><rect x="5" y="15" width="54" height="20" rx="10"/><path d="M15 22h34M15 28h34M16 35v7m32-7v7M24 7h16v8"/><circle cx="16" cy="25" r="3"/><circle cx="48" cy="25" r="3"/></svg><h3>Esteira</h3><p>Detecta a chegada da peça, controla o motor e mantém a parada enquanto o resultado é aguardado.</p><span class="module-detail">Controle e detecção local <span aria-hidden="true">↗</span></span></article>
+        <article class="module-card"><div class="module-top"><span class="module-number">02</span><span class="module-chip">ESP32-CAM</span></div><svg viewBox="0 0 64 48" aria-hidden="true"><rect x="8" y="11" width="48" height="30" rx="5"/><path d="m19 11 4-7h18l4 7"/><circle cx="32" cy="26" r="10"/><circle cx="32" cy="26" r="4"/><path d="M47 18h2"/></svg><h3>Câmera</h3><p>Fotografa o componente parado e envia a imagem para o pedido de captura correspondente.</p><span class="module-detail">Uma imagem por evento <span aria-hidden="true">↗</span></span></article>
+        <article class="module-card"><div class="module-top"><span class="module-number">03</span><span class="module-chip">YOLOv8</span></div><svg viewBox="0 0 64 48" aria-hidden="true"><rect x="18" y="10" width="28" height="28" rx="3"/><path d="M24 4v6m8-6v6m8-6v6M24 38v6m8-6v6m8-6v6M12 16h6m-6 8h6m-6 8h6m28-16h6m-6 8h6m-6 8h6"/><path d="m25 24 5 5 10-11"/></svg><h3>Reconhecimento</h3><p>Analisa a foto com o modelo treinado e associa o resultado a um componente ativo do catálogo.</p><span class="module-detail">Processamento na VPS <span aria-hidden="true">↗</span></span></article>
+      </div>
+    </section>
+    <section id="fluxo" class="flow-section" aria-labelledby="flow-title"><div class="home-container">
+      <div class="section-heading"><div><span class="eyebrow">DO SENSOR AO RESULTADO</span><h2 id="flow-title">Um ciclo claro.<br>Do início à liberação.</h2></div><p>O fluxo foi desenhado para que cada fotografia e cada decisão pertençam à peça certa.</p></div>
+      <ol class="flow-steps"><li><span>01</span><h3>Detectar e parar</h3><p>O sensor percebe a peça e o controle local interrompe o movimento.</p></li><li><span>02</span><h3>Capturar</h3><p>A câmera recebe o pedido e fotografa a peça na posição de análise.</p></li><li><span>03</span><h3>Identificar</h3><p>O servidor analisa a imagem e registra o resultado no painel.</p></li><li><span>04</span><h3>Liberar a saída</h3><p>Um resultado aprovado autoriza a saída controlada e o próximo ciclo.</p></li></ol>
+      <div class="flow-note"><span class="note-symbol" aria-hidden="true">!</span><p>Resultado desconhecido, ambiguidade ou falha mantém a peça parada para conferência.</p></div>
+    </div></section>
+    <section class="home-container dashboard-invite" aria-labelledby="panel-title"><div><span class="eyebrow">PAINEL DE OPERAÇÃO</span><h2 id="panel-title">O projeto inteiro.<br>Em uma visão.</h2><p>Calibre, inicie e pare a esteira. Acompanhe os dispositivos, consulte o catálogo e veja o histórico das análises em um ambiente de acesso restrito.</p></div><a class="primary-button" href="/painel">Entrar no painel <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="home-footer home-container"><a class="footer-brand" href="/">KRONUX<span>Mini Fábrica Inteligente</span></a><p>Automação · Visão computacional · Operação conectada</p><a href="/painel">Área de operação <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

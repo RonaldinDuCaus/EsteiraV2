@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Painel da Mini Fábrica Inteligente para cadastro e reconhecimento de componentes eletrônicos.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#091b27">
+  <title>Painel de operação — Mini Fábrica | Kronux</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body class="dashboard-page">
+  <a class="skip-link" href="#painel-conteudo">Pular para o painel</a>
+  <section id="login-screen" class="login-screen" aria-labelledby="login-title">
+    <div class="login-intro">
+      <a class="brand" href="/" aria-label="Voltar à página inicial"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Mini Fábrica<small>POR KRONUX</small></span></a>
+      <div><span class="eyebrow">PAINEL DE OPERAÇÃO</span><h2>Tudo no<br> mesmo ciclo.</h2><p>Da primeira detecção ao resultado da análise. Acompanhe o processo e opere a linha em um só lugar.</p><div class="login-modules"><span>ESTEIRA</span><i aria-hidden="true">→</i><span>CÂMERA</span><i aria-hidden="true">→</i><span>YOLOv8</span></div></div>
+      <a class="quiet-link" href="/">← Voltar ao início</a>
+    </div>
+    <form id="login-form" class="login-card">
+      <span class="eyebrow">ACESSO RESTRITO</span>
+      <h1 id="login-title">Acessar operação</h1>
+      <p>Entre com sua conta administrativa.</p>
+      <label>Usuário<input id="login-username" name="username" autocomplete="username" required></label>
+      <label>Senha<input id="login-password" name="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary-button" type="submit">Entrar no painel <span aria-hidden="true">↗</span></button>
+      <p id="login-error" class="form-error" role="alert"></p>
+      <p class="login-caption">As ações da esteira exigem autenticação e confirmação do dispositivo.</p>
+    </form>
+  </section>
+
+  <div id="app-shell" class="app-shell" hidden>
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Mini Fábrica — página inicial"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Mini Fábrica<small>POR KRONUX</small></span></a>
+      <span class="sidebar-section-label">OPERAÇÃO</span>
+      <nav aria-label="Navegação principal">
+        <button class="nav-button active" data-view="dashboard"><span aria-hidden="true">01</span>Visão geral</button>
+        <button class="nav-button" data-view="register"><span aria-hidden="true">02</span>Cadastrar</button>
+        <button class="nav-button" data-view="components"><span aria-hidden="true">03</span>Catálogo</button>
+        <button class="nav-button" data-view="history"><span aria-hidden="true">04</span>Histórico</button>
+      </nav>
+      <div class="sidebar-footer">
+        <span id="user-label">Administrador</span>
+        <button id="logout-button" class="text-button">Sair</button>
+      </div>
+    </aside>
+
+    <main id="painel-conteudo" class="main-content">
+      <header class="mobile-header">
+        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Mini Fábrica</span></a>
+        <span class="connection-label server-connection" data-state="waiting"><span class="status-dot"></span><span class="server-connection-text">Conectando ao servidor</span></span>
+      </header>
+
+      <section id="view-dashboard" class="view active-view">
+        <div class="page-heading"><div><span class="eyebrow">OPERAÇÃO / MONITORAMENTO</span><h1>Visão geral</h1><p>Acompanhe cada etapa da linha.</p></div><span class="connection-label desktop-only server-connection" data-state="waiting"><span class="status-dot"></span><span class="server-connection-text">Conectando ao servidor</span></span></div>
+        <article class="panel factory-panel" aria-labelledby="factory-title">
+          <div class="panel-title"><div><span class="panel-kicker">CONTROLE LOCAL + SERVIDOR</span><h2 id="factory-title">Esteira</h2></div><span id="factory-mode" class="badge">Aguardando estado</span></div>
+          <p class="factory-intro">Retire as peças da esteira antes de calibrar. Depois, inicie o ciclo: cada peça aguarda a identificação antes da saída controlada.</p>
+          <div class="factory-actions" role="group" aria-label="Comandos da esteira">
+            <button id="factory-calibrate" class="secondary-button" type="button" data-factory-command="calibrate" disabled>Calibrar</button>
+            <button id="factory-start" class="primary-button" type="button" data-factory-command="start" disabled>Iniciar</button>
+            <button id="factory-stop" class="danger-button" type="button" data-factory-command="stop" disabled>Parar</button>
+          </div>
+          <p id="factory-command-message" class="factory-message" role="status"></p>
+          <p id="factory-network-error" class="factory-error" role="alert" hidden></p>
+          <div id="factory-status" class="factory-status" aria-live="polite"></div>
+        </article>
+        <div id="dashboard-content" aria-live="polite"></div>
+      </section>
+
+      <section id="view-register" class="view">
+        <div class="page-heading"><div><span class="eyebrow">CATÁLOGO / NOVO COMPONENTE</span><h1>Cadastrar componente</h1><p>Organize os módulos e suas fotografias de referência.</p></div></div>
+        <form id="component-form" class="form-panel">
+          <div class="form-grid">
+            <label>Nome do componente<input name="name" placeholder="Ex.: Capacitor eletrolítico" maxlength="160" required></label>
+            <label>Categoria<input name="category" placeholder="Ex.: Capacitor" maxlength="100"></label>
+            <label>Código ou valor<input name="code" placeholder="Ex.: 100 µF 25 V" maxlength="100"></label>
+          </div>
+          <label class="upload-box" for="component-images">
+            <strong>Adicionar fotografias</strong>
+            <span>Envie de 1 a 10 imagens JPG, PNG ou WebP.</span>
+            <input id="component-images" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple required>
+          </label>
+          <div id="image-preview" class="image-preview"></div>
+          <div class="form-actions"><button class="primary-button" type="submit">Cadastrar componente</button><span id="component-form-message" role="status"></span></div>
+        </form>
+      </section>
+
+      <section id="view-components" class="view">
+        <div class="page-heading"><div><span class="eyebrow">CATÁLOGO / COMPONENTES</span><h1>Catálogo visual</h1><p>Componentes cadastrados e suas referências.</p></div></div>
+        <div id="components-content" class="component-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="view-history" class="view">
+        <div class="page-heading"><div><span class="eyebrow">OPERAÇÃO / RASTREABILIDADE</span><h1>Histórico de análises</h1><p>Fotografias, resultados e motivos de cada evento.</p></div></div>
+        <div id="history-content" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/factory-ui.js" defer></script>
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

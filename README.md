@@ -1,6 +1,6 @@
 # Projeto Esteira IoT
 
-Controle de uma esteira com ESP32, driver TB6612FNG e detecção de peças, com futura integração à dashboard existente em uma VPS Linux.
+Esteira com ESP32, TB6612FNG, detecção ultrassônica, ESP32-CAM AI Thinker e reconhecimento YOLOv8 na VPS Linux. Novo site e API preparados para minifabrica.kronux.com.br; implantação e validação física pendentes.
 
 **Última atualização:** 08/11/2026 (America/Sao_Paulo).
 
@@ -8,9 +8,9 @@ Controle de uma esteira com ESP32, driver TB6612FNG e detecção de peças, com 
 
 A partir de 08/11/2026, cada entrega de código/configuração será salva em `versao-1`, `versao-2`, `versao-3` etc. Cada pasta reúne as partes existentes do projeto (`motor/`, futuramente `camera/` e `site/`) e um README próprio. A versão anterior não será sobrescrita.
 
-**Versão atual organizada:** [Versão 3 — integração com YOLOv8](versao-3/README.md). [Esteira](versao-3/motor/README.md), [ESP32-CAM](versao-3/camera/README.md), [site e worker](versao-3/site/README.md), [protocolo](versao-3/conexoes-esp32/README.md) e [validação](versao-3/VALIDACAO.md).
+**Versão atual organizada:** [Versão 4 — novo site e API modular](versao-4/README.md). [Esteira](versao-4/motor/README.md), [ESP32-CAM](versao-4/camera/README.md), [site e worker](versao-4/site/README.md), [protocolo](versao-4/conexoes-esp32/README.md) e [validação](versao-4/VALIDACAO.md).
 
-A Versão 1 copia o Teste Motor 5 sem mudanças funcionais. Não há arquivos de câmera/site incorporados ainda. A Versão 2 importou o ZIP da Etapa 1 em site/ e separou a documentação das conexões ESP32; o motor foi copiado sem alterações. A Versão 3 integra firmware, comandos e análise YOLOv8; a próxima alteração será a Versão 4. As pastas `teste-motor-*` da raiz permanecem como histórico anterior.
+A Versão 1 copia o Teste Motor 5 sem mudanças funcionais. Não há arquivos de câmera/site incorporados ainda. A Versão 2 importou o ZIP da Etapa 1 em site/ e separou a documentação das conexões ESP32; o motor foi copiado sem alterações. A Versão 3 integra firmware, comandos e análise YOLOv8; a Versão 4 renova a home, modulariza as APIs e prepara credenciais privadas e HTTPS para o domínio informado. A próxima entrega será a Versão 5. As pastas `teste-motor-*` da raiz permanecem como histórico anterior.
 
 O README da raiz continua sendo o índice e acompanhamento geral. O procedimento permanente está em [AGENTS.md](AGENTS.md). Documentar uma nova observação de teste não exige duplicar todos os códigos.
 
@@ -18,15 +18,15 @@ O README da raiz continua sendo o índice e acompanhamento geral. O procedimento
 
 A Esteira IoT integra transporte de módulos eletrônicos, detecção de presença e reconhecimento de imagens. O objetivo é: operador autoriza o início → esteira transporta a peça → sensor detecta → motor para na região da câmera → câmera envia fotografia vinculada ao evento → servidor na VPS Linux identifica entre os componentes ativos cadastrados → dashboard e LCD mostram o resultado → peça aprovada recebe saída controlada. Resultado desconhecido, ambíguo ou falha mantém a parada para conferência. Não há separador físico por categorias confirmado.
 
-A dashboard existente já recebe/reconhece fotos e gerencia inventário, conforme relato do usuário. A operação final deverá funcionar sem computador local, com placas conectadas à rede. A Versão 3 agora contém câmera, API e integração em código; configuração real, modelo treinado, LCD, emergência física e validação do conjunto ainda são pendências. Testes de bancada não equivalem à validação da instalação final.
+A dashboard existente já recebe/reconhece fotos e gerencia inventário, conforme relato do usuário. A operação final deverá funcionar sem computador local, com placas conectadas à rede. A Versão 4 contém câmera, API modular, nova home e painel. Configurações privadas foram preparadas localmente; instalação na VPS, modelo treinado, LCD, emergência física e validação do conjunto ainda são pendências. Testes de bancada não equivalem à validação da instalação final.
 
 ## Onde estamos
 
 - **Motor e driver: funcionamento confirmado pelo usuário.** O último teste gira por 5 segundos e desliga por 5 segundos, repetidamente.
 - **Código atual validado em bancada pelo usuário:** [Teste motor 1](teste-motor-1/teste-motor-1.ino).
-- **Código atual:** [Versão 3 / Esteira V3](versao-3/motor/esteira-v3/esteira-v3.ino) + [ESP32-CAM V3](versao-3/camera/esp32cam-v3/esp32cam-v3.ino). O motor só recebe saída controlada após aprovação do mesmo evento/boot. Não há mais liberação por 5 segundos. Ambos compilaram; ensaio físico e pesos treinados pendentes.
+- **Código atual:** [Versão 4 / Esteira V4](versao-4/motor/esteira-v4/esteira-v4.ino) + [ESP32-CAM V4](versao-4/camera/esp32cam-v4/esp32cam-v4.ino). O motor só recebe saída controlada após aprovação do mesmo evento/boot. Não há mais liberação por 5 segundos. Ambos compilaram; ensaio físico e pesos treinados pendentes.
 - **Pendências elétricas imediatas:** usuário confirmou que VM permanece na bateria de 8–8,4 V, embora o motor tenha sido informado como 5 V; não energizar os Testes 4 e 5 a 100% nessa condição. Usar alimentação regulada de 5 V adequada à corrente de partida ou confirmar especificação real do motor. A instalação do divisor no ECHO também segue sem confirmação após relato de ligação direta ao D19. Não há confirmação de dano ao ESP32.
-- A Versão 3 implementa os botões Calibrar/Iniciar/Parar, API de dispositivos, captura vinculada, worker YOLOv8 e migração aditiva. Ainda não foi implantada na VPS; falta o detector treinado best.pt, o mapa de classes e a configuração real das placas. O pacote da Versão 2 permanece como referência da Etapa 1.
+- A Versão 4 preserva os botões Calibrar/Iniciar/Parar e o ciclo vinculado ao reconhecimento, com nova home e API modular. Novas credenciais estão nos arquivos privados locais. Ainda faltam instalação na VPS, pesos best.pt/mapa e correção do certificado HTTPS (RemoteCertificateNameMismatch observado). O pacote da Versão 2 permanece como referência da Etapa 1.
 
 ## Arquivos e versão de referência
 
@@ -34,6 +34,12 @@ A dashboard existente já recebe/reconhece fotos e gerencia inventário, conform
 Projeto Esteira IoT/
 ├── README.md
 ├── AGENTS.md
+├── versao-4/
+│   ├── README.md / VALIDACAO.md
+│   ├── motor/esteira-v4/
+│   ├── camera/esp32cam-v4/
+│   ├── site/
+│   └── conexoes-esp32/
 ├── versao-3/
 │   ├── README.md / VALIDACAO.md
 │   ├── motor/esteira-v3/
@@ -328,6 +334,12 @@ Criados firmware da esteira e da ESP32-CAM AI Thinker/OV2640, API de eventos/com
 
 A configuração final exige Wi-Fi, domínio HTTPS/CA, tokens individuais e o arquivo best.pt de detecção YOLOv8 com mapa classes.json para IDs ativos do catálogo. Cadastrar fotos não treina automaticamente esse modelo. Próxima entrega de código será a Versão 4.
 
+## Versão 4 — novo sistema modular — 08/11/2026
+
+Home pública nova em `/`, painel em `/painel`, API modular e instância `minifabrica-v4` em `127.0.0.1:8004`, preparada para https://minifabrica.kronux.com.br. Novos tokens exclusivos e credenciais gerados localmente, sincronizados nas placas e ignorados pelo Git. Documentados Nginx existente ou Caddy opcional. Não houve alteração da VPS.
+
+[README V4](versao-4/README.md): 37 testes Python com PostgreSQL local real, três arquivos de testes Node, conferência visual responsiva e compilação dos dois firmwares aprovados. HTTPS do domínio apresentou erro de nome no certificado. Modelo treinado, instalação na VPS e ensaio físico seguem pendentes. Versões anteriores preservadas; próxima entrega V5.
+
 ## Histórico
 
 | Etapa | Resultado |
@@ -343,7 +355,7 @@ A configuração final exige Wi-Fi, domínio HTTPS/CA, tokens individuais e o ar
 
 - **Implementado:** teste automático do motor, documentação das ligações e novo teste integrado do ultrassônico com calibração e parada travada.
 - **Testado fisicamente:** alternância do motor, conforme relato do usuário.
-- **Não realizado pelo assistente:** compilação local e ensaio físico.
+- **Compilado pelo assistente:** firmwares integrados V3 e V4; testes históricos anteriores mantêm as evidências originais. Sem ensaio físico pelo assistente.
 - **Pendente:** adequação elétrica, identificação do ultrassônico, divisor do ECHO, ensaio da calibração e do firmware integrado, validação da frenagem, emergência física, câmera e integração com a VPS.
 
 A cada alteração neste projeto, atualizar este README com a data, arquivos criados/modificados, ligações efetivas, resultado do ensaio e próxima pendência. Separar sempre proposta, implementação e resultado confirmado. Preservar o último teste funcional e não declarar validado o que ainda não foi ensaiado.
