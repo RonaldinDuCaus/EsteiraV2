@@ -1,0 +1,51 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: minifabrica
+      POSTGRES_USER: minifabrica
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Configure POSTGRES_PASSWORD no .env}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U minifabrica -d minifabrica"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  app:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://minifabrica:${POSTGRES_PASSWORD}@db:5432/minifabrica
+      YOLO_MODEL_PATH: /models/best.pt
+      YOLO_CLASS_MAP_PATH: /models/classes.json
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - uploads_data:/app/data/uploads
+      - ./models:/models:ro
+    depends_on:
+      db:
+        condition: service_healthy
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://minifabrica:${POSTGRES_PASSWORD}@db:5432/minifabrica
+      YOLO_MODEL_PATH: /models/best.pt
+      YOLO_CLASS_MAP_PATH: /models/classes.json
+      YOLO_DEVICE: cpu
+    volumes:
+      - uploads_data:/app/data/uploads
+      - ./models:/models:ro
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  postgres_data:
+  uploads_data:
