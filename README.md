@@ -4,6 +4,16 @@ Controle de uma esteira com ESP32, driver TB6612FNG e detecção de peças, com 
 
 **Última atualização:** 08/11/2026 (America/Sao_Paulo).
 
+## Organização por versões completas
+
+A partir de 08/11/2026, cada entrega de código/configuração será salva em `versao-1`, `versao-2`, `versao-3` etc. Cada pasta reúne as partes existentes do projeto (`motor/`, futuramente `camera/` e `site/`) e um README próprio. A versão anterior não será sobrescrita.
+
+**Versão atual para teste:** [Versão 1 — README e ligações](versao-1/README.md). Código: [motor / Teste Motor 5](versao-1/motor/teste-motor-5-ciclo/teste-motor-5-ciclo.ino).
+
+A Versão 1 copia o Teste Motor 5 sem mudanças funcionais. Não há arquivos de câmera/site incorporados ainda. A próxima alteração de código será a Versão 2; ela incluirá as partes já existentes e as mudanças novas, documentando o conjunto. As pastas `teste-motor-*` da raiz permanecem como histórico anterior.
+
+O README da raiz continua sendo o índice e acompanhamento geral. O procedimento permanente está em [AGENTS.md](AGENTS.md). Documentar uma nova observação de teste não exige duplicar todos os códigos.
+
 ## Ideia do projeto
 
 A Esteira IoT integra transporte de módulos eletrônicos, detecção de presença e reconhecimento de imagens. O objetivo é: operador autoriza o início → esteira transporta a peça → sensor detecta → motor para na região da câmera → câmera envia fotografia vinculada ao evento → servidor na VPS Linux identifica entre os componentes ativos cadastrados → dashboard e LCD mostram o resultado → peça aprovada recebe saída controlada. Resultado desconhecido, ambíguo ou falha mantém a parada para conferência. Não há separador físico por categorias confirmado.
@@ -14,7 +24,7 @@ A dashboard existente já recebe/reconhece fotos e gerencia inventário, conform
 
 - **Motor e driver: funcionamento confirmado pelo usuário.** O último teste gira por 5 segundos e desliga por 5 segundos, repetidamente.
 - **Código atual validado em bancada pelo usuário:** [Teste motor 1](teste-motor-1/teste-motor-1.ino).
-- **Código mais recente para testar:** [Teste motor 5 — ciclo contínuo](teste-motor-5-ciclo/teste-motor-5-ciclo.ino). Calibrar e autorizar uma vez por reinício; depois repetir detecção, pausa mínima de 5 s e retomada com área livre estável. Mantém PWM de 100%, exigindo alimentação adequada ao motor de 5 V. Não compilado nem validado fisicamente; versões anteriores preservadas.
+- **Código atual organizado por versão:** [Versão 1 / Teste Motor 5](versao-1/motor/teste-motor-5-ciclo/teste-motor-5-ciclo.ino), cópia preservada do teste mais recente. Ciclo contínuo, autorização por reinício e pausa mínima de 5 s. Ainda sem compilação ou validação física confirmada; pendências elétricas continuam aplicáveis.
 - **Pendências elétricas imediatas:** usuário confirmou que VM permanece na bateria de 8–8,4 V, embora o motor tenha sido informado como 5 V; não energizar os Testes 4 e 5 a 100% nessa condição. Usar alimentação regulada de 5 V adequada à corrente de partida ou confirmar especificação real do motor. A instalação do divisor no ECHO também segue sem confirmação após relato de ligação direta ao D19. Não há confirmação de dano ao ESP32.
 - A dashboard já reconhece fotos, armazena imagens e controla inventário, segundo o usuário. Endereço, código e contratos da API ainda não foram inspecionados.
 
@@ -23,6 +33,12 @@ A dashboard existente já recebe/reconhece fotos e gerencia inventário, conform
 ```text
 Projeto Esteira IoT/
 ├── README.md
+├── AGENTS.md
+├── versao-1/
+│   ├── README.md
+│   └── motor/
+│       └── teste-motor-5-ciclo/
+│           └── teste-motor-5-ciclo.ino
 ├── teste-motor-1/
 │   └── teste-motor-1.ino
 ├── teste-motor-2-ultrassonico/
@@ -37,11 +53,11 @@ Projeto Esteira IoT/
 
 Pasta local: `C:\Users\Rdyxava\Documents\Projeto Esteira IoT`.
 
-Sketch atual: `C:\Users\Rdyxava\Documents\Projeto Esteira IoT\teste-motor-1\teste-motor-1.ino`.
+Sketch histórico com funcionamento confirmado: `C:\Users\Rdyxava\Documents\Projeto Esteira IoT\teste-motor-1\teste-motor-1.ino`.
 
 O link relativo acima funciona no GitHub. O arquivo foi copiado sem alterações do teste que funcionou em `C:\Users\Rdyxava\Documents\Site\teste-motor-automatico\teste-motor-automatico.ino`.
 
-Esta é uma cópia de referência preservada. Novos ensaios devem ser adicionados em pastas próprias; mudar o código atual validado somente após confirmação do resultado. O repositório remoto atual é EsteiraV2; o histórico desta preparação está registrado na seção GitHub.
+Esta é uma cópia de referência preservada. Novos ensaios devem seguir as pastas versao-N com README próprio; mudar o código atual validado somente após confirmação do resultado. O repositório remoto atual é EsteiraV2; o histórico desta preparação está registrado na seção GitHub.
 
 ## Hardware informado
 
