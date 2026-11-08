@@ -279,12 +279,12 @@ Arquivo revisado: autorização começa falsa; partida exige calibração, leitu
 - Referência da primeira versão: [RonaldinDuCaus/Esteira](https://github.com/RonaldinDuCaus/Esteira).
 - A listagem do repositório antigo contém README.md, esp32cam_dashboard_capture.ino, esteira_api.ino e root_ca.h. Esses arquivos ainda não foram revisados nem incorporados aos testes novos. A listagem não contém código de backend/dashboard.
 - Na consulta desta data, EsteiraV2 estava vazio e público. Em 08/11/2026, o usuário confirmou que deseja mantê-lo público, substituindo a preferência inicial por privado. Visibilidade pública definida pelo usuário. Autenticação da conta proprietária disponível pelo Git local.
-- O plugin GitHub permanece conectado à conta sem escrita, mas foi localizada autenticação Git local como RonaldinDuCaus. O envio será realizado pelo Git local ao destino EsteiraV2, preservando o repositório antigo.
+- O plugin GitHub permanece conectado à conta sem escrita, mas foi localizada autenticação Git local como RonaldinDuCaus. O primeiro envio foi concluído pelo Git local ao destino EsteiraV2, preservando o repositório antigo.
 - Arquivos locais preparados: testes 1 a 5, README, .gitignore e .gitattributes. Preservar o repositório antigo como referência e não copiar credenciais para o novo.
 
-## Preparação do primeiro envio — 08/11/2026
+## Primeiro envio concluído — 08/11/2026
 
-O conjunto preparado inclui cinco sketches, README, .gitignore e .gitattributes. Verificação textual de padrões comuns de credenciais não encontrou ocorrências nos arquivos selecionados; isso não substitui uma auditoria de segurança. Nenhum código do repositório antigo foi copiado. Firmware permanece sem compilação local e sem validação física adicional.
+Publicado em `main`: [commit inicial f71d663](https://github.com/RonaldinDuCaus/EsteiraV2/commit/f71d663), contendo cinco sketches, README, .gitignore e .gitattributes. A pasta local acompanha `origin/main`. Verificação textual de padrões comuns de credenciais não encontrou ocorrências nos arquivos selecionados; isso não substitui uma auditoria de segurança. Nenhum código do repositório antigo foi copiado. Firmware permanece sem compilação local e sem validação física adicional.
 
 ## Histórico
 
