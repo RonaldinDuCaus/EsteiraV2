@@ -1,0 +1,164 @@
+{
+  "arquivo": "MiniFabrica_Grupo1_Etapa1.zip",
+  "sha256": "14027086b79c22b28cc662e557182756f281a4b51cdfb5ee286d4d3fae16fffc",
+  "data": "2026-11-08",
+  "transformacao": "Arquivos extraidos sem alterar bytes; README original renomeado para site/README_ORIGINAL.md; documentacao de separacao adicionada.",
+  "arquivos": [
+    {
+      "origem": "MiniFabrica_Grupo1/package.json",
+      "destino": "site/package.json",
+      "bytes": 180,
+      "sha256": "4c02a7165cc14b8d35bbae1f4ef7a64e21fabd5990cf589ce56b6021f1c233f7"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/requirements.txt",
+      "destino": "site/requirements.txt",
+      "bytes": 111,
+      "sha256": "b09165252c4f72bb241c32a72c4f91a97a7918dcfac580c94d4e699f0ae99c6c"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/.env.example",
+      "destino": "site/.env.example",
+      "bytes": 274,
+      "sha256": "7ef36a0619a5b3586e60cbecf3ab443c0560d19361e4bb33e48cb5d92a103e54"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/scripts/preview-server.mjs",
+      "destino": "site/scripts/preview-server.mjs",
+      "bytes": 1436,
+      "sha256": "84700e135cf2b46b9d2b69bcbce203a5fc485b99ec2d108afc593f391db639d5"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/scripts/reset_database.py",
+      "destino": "site/scripts/reset_database.py",
+      "bytes": 508,
+      "sha256": "c9ee1184cc34c57a070312913a9e5a87a0b235c5cfb7a7ebde6eb7e59990a1ca"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/data/uploads/.gitkeep",
+      "destino": "site/data/uploads/.gitkeep",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/Dockerfile",
+      "destino": "site/Dockerfile",
+      "bytes": 556,
+      "sha256": "f7498eff92c0d84e41b34b861fcdc4da2e014070bf42ec1055258ae7c8383611"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/docker-compose.yml",
+      "destino": "site/docker-compose.yml",
+      "bytes": 761,
+      "sha256": "93a079d45e1729c743e22d2810906121c08569d0e4cb68e4fb8d8b3e80650fe8"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/database/schema.sql",
+      "destino": "site/database/schema.sql",
+      "bytes": 1086,
+      "sha256": "9a1d1e40266f3bfc0a0e0398e9bf1861d1f1454d1653b12908d9c3e1c73f990f"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/.dockerignore",
+      "destino": "site/.dockerignore",
+      "bytes": 50,
+      "sha256": "bf9c489ea21a2b5690a9400b46e9f247cc20db61281853bb9ffca20ff39a4912"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/README.md",
+      "destino": "site/README_ORIGINAL.md",
+      "bytes": 1559,
+      "sha256": "7acc8f42ae916d835ee9e297c36a7d1ba69f48b30dab564c481f7293f6d91ab4"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/.gitignore",
+      "destino": "site/.gitignore",
+      "bytes": 95,
+      "sha256": "bc5254d2eed3405de26d1594f8c42137ab885cfa6efac5f71ed652769d6efc1b"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/backend/__init__.py",
+      "destino": "site/backend/__init__.py",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/backend/app/config.py",
+      "destino": "site/backend/app/config.py",
+      "bytes": 1426,
+      "sha256": "f2c5b4208d6d4736b10a5a15bc6a8d861948e5065a07b12298957cfa9b55c9c2"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/backend/app/main.py",
+      "destino": "site/backend/app/main.py",
+      "bytes": 11452,
+      "sha256": "991cd9bf17ff9c76485f27c349b4dded2f3ca933eeac0ca907bfb43e8c77e608"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/backend/app/database.py",
+      "destino": "site/backend/app/database.py",
+      "bytes": 2377,
+      "sha256": "eef7cae48239aacf18ab1108e0a1335a62e33a94a6922ac8eb1ad2206ce04749"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/backend/app/security.py",
+      "destino": "site/backend/app/security.py",
+      "bytes": 1703,
+      "sha256": "3efc4ea0e722a551110ed949c0b0487b1d4f77979cd6fbbb78503b1a1d36d075"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/backend/app/__init__.py",
+      "destino": "site/backend/app/__init__.py",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/frontend/index.html",
+      "destino": "site/frontend/index.html",
+      "bytes": 4278,
+      "sha256": "519f163f4b020b9db6fdb6169bfd01d125ea27d440ff78ef301c142b05220014"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/frontend/assets/favicon.svg",
+      "destino": "site/frontend/assets/favicon.svg",
+      "bytes": 290,
+      "sha256": "16bfffb292e0973344ba90fd80742066f1d283c07ab7c63a30db6a34a9ccc2bc"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/frontend/assets/app.js",
+      "destino": "site/frontend/assets/app.js",
+      "bytes": 10031,
+      "sha256": "a97e8b889a6840319715611957d5f20ec344302a5597398dfdf4d04cc8ce1cb0"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/frontend/assets/styles.css",
+      "destino": "site/frontend/assets/styles.css",
+      "bytes": 9084,
+      "sha256": "114c719fa4811458541db0e7134af6c85437aa77a3023928cd90849ddb9662a0"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/docs/01_INSTALACAO_VPS.md",
+      "destino": "site/docs/01_INSTALACAO_VPS.md",
+      "bytes": 1313,
+      "sha256": "fd1a465f748a42ddaa5c132d6f52c4ef2b7a52ad716c29771c390fdf7b2a85b5"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/docs/02_USO_DO_SITE.md",
+      "destino": "site/docs/02_USO_DO_SITE.md",
+      "bytes": 622,
+      "sha256": "e15b3501c35e44b733bb9cfc635b34e95f64888b0e2f35a9c6fd9e508ebbfe9b"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/docs/ROADMAP.md",
+      "destino": "site/docs/ROADMAP.md",
+      "bytes": 501,
+      "sha256": "f66316ad4362031389c93a8feceb6fc032624787ee9cbbdb10e504003f7cf546"
+    },
+    {
+      "origem": "MiniFabrica_Grupo1/docs/03_API_ESP32_CAM.md",
+      "destino": "site/docs/03_API_ESP32_CAM.md",
+      "bytes": 548,
+      "sha256": "803bb3fd03580d5c936a0846cf4f63b2c81b9faaa42bd04be65d1bcb25a61eff"
+    }
+  ]
+}

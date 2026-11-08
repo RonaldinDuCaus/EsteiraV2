@@ -8,9 +8,9 @@ Controle de uma esteira com ESP32, driver TB6612FNG e detecção de peças, com 
 
 A partir de 08/11/2026, cada entrega de código/configuração será salva em `versao-1`, `versao-2`, `versao-3` etc. Cada pasta reúne as partes existentes do projeto (`motor/`, futuramente `camera/` e `site/`) e um README próprio. A versão anterior não será sobrescrita.
 
-**Versão atual para teste:** [Versão 1 — README e ligações](versao-1/README.md). Código: [motor / Teste Motor 5](versao-1/motor/teste-motor-5-ciclo/teste-motor-5-ciclo.ino).
+**Versão atual organizada:** [Versão 2 — site e conexões ESP32](versao-2/README.md). [Site](versao-2/site/README.md), [conexões ESP32](versao-2/conexoes-esp32/README.md) e [motor preservado](versao-2/motor/teste-motor-5-ciclo/teste-motor-5-ciclo.ino).
 
-A Versão 1 copia o Teste Motor 5 sem mudanças funcionais. Não há arquivos de câmera/site incorporados ainda. A próxima alteração de código será a Versão 2; ela incluirá as partes já existentes e as mudanças novas, documentando o conjunto. As pastas `teste-motor-*` da raiz permanecem como histórico anterior.
+A Versão 1 copia o Teste Motor 5 sem mudanças funcionais. Não há arquivos de câmera/site incorporados ainda. A Versão 2 importou o ZIP da Etapa 1 em site/ e separou a documentação das conexões ESP32; o motor foi copiado sem alterações. A próxima alteração será a Versão 3. As pastas `teste-motor-*` da raiz permanecem como histórico anterior.
 
 O README da raiz continua sendo o índice e acompanhamento geral. O procedimento permanente está em [AGENTS.md](AGENTS.md). Documentar uma nova observação de teste não exige duplicar todos os códigos.
 
@@ -24,9 +24,9 @@ A dashboard existente já recebe/reconhece fotos e gerencia inventário, conform
 
 - **Motor e driver: funcionamento confirmado pelo usuário.** O último teste gira por 5 segundos e desliga por 5 segundos, repetidamente.
 - **Código atual validado em bancada pelo usuário:** [Teste motor 1](teste-motor-1/teste-motor-1.ino).
-- **Código atual organizado por versão:** [Versão 1 / Teste Motor 5](versao-1/motor/teste-motor-5-ciclo/teste-motor-5-ciclo.ino), cópia preservada do teste mais recente. Ciclo contínuo, autorização por reinício e pausa mínima de 5 s. Ainda sem compilação ou validação física confirmada; pendências elétricas continuam aplicáveis.
+- **Código atual organizado por versão:** [Versão 2 / Teste Motor 5](versao-2/motor/teste-motor-5-ciclo/teste-motor-5-ciclo.ino), cópia preservada do teste mais recente. Ciclo contínuo, autorização por reinício e pausa mínima de 5 s. Ainda sem compilação ou validação física confirmada; pendências elétricas continuam aplicáveis.
 - **Pendências elétricas imediatas:** usuário confirmou que VM permanece na bateria de 8–8,4 V, embora o motor tenha sido informado como 5 V; não energizar os Testes 4 e 5 a 100% nessa condição. Usar alimentação regulada de 5 V adequada à corrente de partida ou confirmar especificação real do motor. A instalação do divisor no ECHO também segue sem confirmação após relato de ligação direta ao D19. Não há confirmação de dano ao ESP32.
-- A dashboard já reconhece fotos, armazena imagens e controla inventário, segundo o usuário. Endereço, código e contratos da API ainda não foram inspecionados.
+- O usuário informou dashboard com reconhecimento e inventário na VPS. O ZIP da Etapa 1 agora foi inspecionado/importado na Versão 2: contém site e API inicial, mas não contém IA nem firmware ESP32. A correspondência com o site atualmente hospedado ainda não foi confirmada.
 
 ## Arquivos e versão de referência
 
@@ -34,6 +34,12 @@ A dashboard existente já recebe/reconhece fotos e gerencia inventário, conform
 Projeto Esteira IoT/
 ├── README.md
 ├── AGENTS.md
+├── versao-2/
+│   ├── README.md
+│   ├── ORIGEM.json
+│   ├── site/
+│   ├── conexoes-esp32/
+│   └── motor/
 ├── versao-1/
 │   ├── README.md
 │   └── motor/
@@ -301,6 +307,12 @@ Arquivo revisado: autorização começa falsa; partida exige calibração, leitu
 ## Primeiro envio concluído — 08/11/2026
 
 Publicado em `main`: [commit inicial f71d663](https://github.com/RonaldinDuCaus/EsteiraV2/commit/f71d663), contendo cinco sketches, README, .gitignore e .gitattributes. A pasta local acompanha `origin/main`. Verificação textual de padrões comuns de credenciais não encontrou ocorrências nos arquivos selecionados; isso não substitui uma auditoria de segurança. Nenhum código do repositório antigo foi copiado. Firmware permanece sem compilação local e sem validação física adicional.
+
+## Importação do site e separação das conexões — Versão 2 — 08/11/2026
+
+A pedido do usuário, extraído `MiniFabrica_Grupo1_Etapa1.zip` em [versao-2/site](versao-2/site/README.md). A pasta [conexoes-esp32](versao-2/conexoes-esp32/README.md) reúne o contrato real, autenticação, campos e exemplos HTTP das rotas de foto/evento. O backend original permanece junto ao site para preservar seus caminhos e dependências. Não há firmware de placas no ZIP; o motor da Versão 1 foi copiado para completar o conjunto sem mudanças.
+
+O pacote não inclui reconhecimento por IA, controle remoto da esteira ou telemetria de dispositivos: capturas ficam pending. Origem e hashes em [ORIGEM.json](versao-2/ORIGEM.json). Foram conferidos hashes, sintaxe JavaScript e referências locais; backend, banco, VPS e hardware não foram executados. Nenhum segredo real localizado no material inspecionado; exemplos de configuração preservados.
 
 ## Histórico
 

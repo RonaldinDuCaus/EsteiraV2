@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Painel da Mini Fábrica Inteligente para cadastro e reconhecimento de componentes eletrônicos.">
+  <title>Mini Fábrica Inteligente</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <section id="login-screen" class="login-screen" aria-labelledby="login-title">
+    <form id="login-form" class="login-card">
+      <div class="brand-mark" aria-hidden="true">MF</div>
+      <h1 id="login-title">Mini Fábrica</h1>
+      <p>Entre para acessar o painel.</p>
+      <label>Usuário<input id="login-username" name="username" autocomplete="username" required></label>
+      <label>Senha<input id="login-password" name="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary-button" type="submit">Entrar</button>
+      <p id="login-error" class="form-error" role="alert"></p>
+    </form>
+  </section>
+
+  <div id="app-shell" class="app-shell" hidden>
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">MF</span><span>Mini Fábrica</span></div>
+      <nav aria-label="Navegação principal">
+        <button class="nav-button active" data-view="dashboard">Dashboard</button>
+        <button class="nav-button" data-view="register">Cadastro</button>
+        <button class="nav-button" data-view="components">Componentes</button>
+        <button class="nav-button" data-view="history">Histórico</button>
+      </nav>
+      <div class="sidebar-footer">
+        <span id="user-label">Administrador</span>
+        <button id="logout-button" class="text-button">Sair</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="mobile-header">
+        <div class="brand"><span class="brand-mark">MF</span><span>Mini Fábrica</span></div>
+        <span class="connection-label"><span class="status-dot"></span>VPS conectada</span>
+      </header>
+
+      <section id="view-dashboard" class="view active-view">
+        <div class="page-heading"><div><span class="eyebrow">Monitoramento</span><h1>Dashboard</h1></div><span class="connection-label desktop-only"><span class="status-dot"></span>VPS conectada</span></div>
+        <div id="dashboard-content" aria-live="polite"></div>
+      </section>
+
+      <section id="view-register" class="view">
+        <div class="page-heading"><div><span class="eyebrow">Catálogo visual</span><h1>Cadastrar componente</h1></div></div>
+        <form id="component-form" class="form-panel">
+          <div class="form-grid">
+            <label>Nome do componente<input name="name" placeholder="Ex.: Capacitor eletrolítico" maxlength="160" required></label>
+            <label>Categoria<input name="category" placeholder="Ex.: Capacitor" maxlength="100"></label>
+            <label>Código ou valor<input name="code" placeholder="Ex.: 100 µF 25 V" maxlength="100"></label>
+          </div>
+          <label class="upload-box" for="component-images">
+            <strong>Adicionar fotografias</strong>
+            <span>Envie de 1 a 10 imagens JPG, PNG ou WebP.</span>
+            <input id="component-images" name="images" type="file" accept="image/jpeg,image/png,image/webp" multiple required>
+          </label>
+          <div id="image-preview" class="image-preview"></div>
+          <div class="form-actions"><button class="primary-button" type="submit">Cadastrar componente</button><span id="component-form-message" role="status"></span></div>
+        </form>
+      </section>
+
+      <section id="view-components" class="view">
+        <div class="page-heading"><div><span class="eyebrow">Referências cadastradas</span><h1>Componentes</h1></div></div>
+        <div id="components-content" class="component-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="view-history" class="view">
+        <div class="page-heading"><div><span class="eyebrow">Registros da esteira</span><h1>Histórico</h1></div></div>
+        <div id="history-content" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
+

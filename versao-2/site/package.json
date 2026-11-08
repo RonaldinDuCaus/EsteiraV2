@@ -1,0 +1,9 @@
+{
+  "name": "minifabrica-grupo1-preview",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/preview-server.mjs",
+    "check": "node --check frontend/assets/app.js"
+  }
+}
+

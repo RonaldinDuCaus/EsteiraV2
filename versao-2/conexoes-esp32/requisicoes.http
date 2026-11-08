@@ -1,0 +1,28 @@
+# Exemplos manuais. Alterar somente em copia local; nunca versionar token real.
+# POSTs criam registros: usar um servidor de teste.
+@baseUrl = http://localhost:8000
+@deviceToken = SUBSTITUA_PELO_TOKEN_LOCAL
+
+### Saude do servidor (sem autenticacao)
+GET {{baseUrl}}/api/v1/health
+
+### Enviar fotografia (cria evento pending)
+# Coloque uma imagem JPEG sua ao lado desta copia local ou ajuste o caminho abaixo.
+POST {{baseUrl}}/api/v1/captures
+Authorization: Bearer {{deviceToken}}
+Content-Type: image/jpeg
+X-Device-ID: esp32-cam-teste
+
+< ./foto-de-teste.jpg
+
+### Criar evento de teste independente (nao processa imagem)
+# Nao executar junto com a captura esperando unificacao: sao registros distintos.
+POST {{baseUrl}}/api/v1/events
+Authorization: Bearer {{deviceToken}}
+Content-Type: application/json
+
+{
+  "detected_name": "Evento manual de teste",
+  "status": "unknown",
+  "device_id": "esp32-teste"
+}
