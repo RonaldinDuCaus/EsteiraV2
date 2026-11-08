@@ -1,0 +1,26 @@
+# Credenciais e configuracoes locais
+.env
+.env.*
+!.env.example
+secrets.h
+secrets.*.h
+credentials.h
+config.local.*
+*.key
+*.p12
+*.pfx
+# Arquivos gerados
+build/
+.pio/
+.vscode/
+*.bin
+*.elf
+*.hex
+*.map
+*.o
+*.log
+*.zip
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
