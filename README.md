@@ -367,3 +367,13 @@ Log enviado pelo usuário: compilação concluída, 1.229.353 bytes de flash (39
 O Windows identifica a COM4 como adaptador USB serial FTDI. Foi orientado fechar programas que usam a porta, reconectar o USB, confirmar a porta e tentar Upload Speed 115200, com cabo de dados e conexão USB direta. Persistindo, conferir alimentação e driver FTDI oficial. Causa ainda não determinada; nenhuma configuração de driver foi alterada pelo assistente.
 
 O aviso de cristal estimado em 0,46 MHz, normalizado para 26 MHz, não confirma a frequência física do cristal nem defeito na placa. Não alterar cristal ou frequência de flash com base nesse aviso. Referências: [Espressif — erros seriais](https://docs.espressif.com/projects/esptool/en/latest/esp32/troubleshooting.html#a-serial-exception-error-occurred) e [menu Upload Speed](https://docs.espressif.com/projects/arduino-esp32/en/latest/guides/tools_menu.html#upload-speed).
+
+## Diagnóstico da base ESP32-CAM-MB — 08/11/2026
+
+O usuário confirmou que o ESP32 comum grava pela COM3 e a câmera usa uma base ESP32-CAM-MB na COM4. A numeração diferente é normal. Consulta do Windows: COM4 identificada como FTDI, driver 2.12.36.20, ProblemCode 0. Isso confirma reconhecimento do dispositivo, sem comprovar estabilidade do driver/adaptador.
+
+A Arduino IDE mostrou novamente `Cannot configure port`/acesso negado e também uma notificação `Serial port busy`. Foi cancelada pela interface uma tentativa que já havia retornado erro. Nenhuma placa foi gravada, nenhum driver ou firmware foi alterado; o problema permanece em diagnóstico.
+
+Correção da orientação anterior sobre velocidade: o perfil AI Thinker instalado não oferece menu Upload Speed e define upload em 460800 no boards.txt. Não foi alterado esse arquivo. Para um ensaio serial da base isolada pode-se usar 115200, sem confundir a velocidade do Monitor Serial com a velocidade de gravação.
+
+Próximo teste pendente: desconectar USB, desencaixar a ESP32-CAM da MB e reconectar só a base vazia; testar abertura da COM4. O usuário informou que a câmera ainda está encaixada; a abertura da porta pelo assistente foi adiada. Falha também com base vazia aponta para o caminho USB/driver/base; abertura estável permite investigar depois encaixe, alimentação e comunicação com a câmera. Não há confirmação de defeito na câmera ou na base.
